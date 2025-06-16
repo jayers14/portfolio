@@ -15,6 +15,34 @@ body {
   line-height: 1.6;
   padding: 2rem;
 }
+html {
+  scroll-behavior: smooth;
+}
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+section:nth-of-type(1) { --delay: 0.2s; }
+section:nth-of-type(2) { --delay: 0.6s; }
+section:nth-of-type(3) { --delay: 1s; }
+section:nth-of-type(4) { --delay: 1.4s; }
+section:nth-of-type(5) { --delay: 1.8s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+header {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.1s;
+}
 header, section {
   max-width: 900px;
   margin: auto;
@@ -28,6 +56,7 @@ header p {
   font-size: 1.2rem;
   margin-top: 1rem;
 }
+
 .projects {
   display: grid;
   gap: 2rem;
@@ -36,15 +65,50 @@ header p {
   background: #2a2a2a;
   padding: 1.5rem;
   border-radius: 8px;
+  border-left: 4px solid transparent;
+  position: relative;
+  padding-left: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .project h3 {
   color: var(--accent);
   margin-bottom: 0.5rem;
 }
+.project a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+.project a:hover {
+  text-decoration: underline;
+  color: #d1bb4d; 
+}
+.project:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(165, 109, 255, 0.4);
+  border-left: var(--accent);
+}
+.project:hover::before {
+  transform: scaleY(1);
+}
+.project::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background-color: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+  border-radius: 2px;
+}
+
 .skills ul {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 0.5rem;
 }
 footer {
@@ -55,4 +119,36 @@ footer {
 }
 a {
   color: var(--accent);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--accent);
+  line-height: 1.2;
+}
+
+.with-line {
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.with-line::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: var(--accent);
+  margin-top: 0.5rem;
+}
+
+.resume-contact a{
+  color:#d1bb4d
+}
+
+.resume-contact a:hover {
+  text-decoration: underline;
+  color: var(--fg);
 }
