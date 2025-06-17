@@ -170,7 +170,7 @@ a {
 .with-line::after {
   content: "";
   display: block;
-  width: 50%;
+  width: 360px;
   height: 3px;
   background-color: var(--accent);
   margin-top: 0.5rem;
