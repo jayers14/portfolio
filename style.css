@@ -13,9 +13,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-body);
-  background: linear-gradient(-45deg, #252525 0%, #1c1c1c 20%, #282605 40%, #1a1a1a 60%, #242424 80%, #141414 100%);
+  /* background: linear-gradient(-45deg, #252525 0%, #1c1c1c 20%, #282605 40%, #1a1a1a 60%, #242424 80%, #141414 100%); */
+  background: linear-gradient(-45deg,
+  #2c2c2c 0%,      /* slightly lighter gray */
+  #1c1c1c 20%,
+  #856516 40%,     /* richer olive/gold */
+  #1a1a1a 60%,
+  #2a2a2a 80%,     /* lighter gray again */
+  #101010 100%);
   background-size: 300% 300%;
-  animation: bgShift 20s ease-in-out infinite alternate;
+  animation: bgShift 16s ease-in-out infinite alternate;
   color: var(--fg);
   line-height: 1.6;
   padding: 2rem;
